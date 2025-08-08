@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,18 +30,14 @@
   --chart-5: hsl(27 87% 67%);
   --radius: 0.5rem;
   
-  /* Google Brand Colors - Exact GDG Colors */
-  --google-blue: hsl(217 89% 61%);
-  --google-green: hsl(142 69% 58%);
-  --google-red: hsl(4 90% 58%);
-  --google-yellow: hsl(45 100% 51%);
-  --google-blue-dark: hsl(217 89% 45%);
-  --google-green-dark: hsl(142 69% 45%);
-  --google-red-dark: hsl(4 90% 45%);
-  --google-yellow-dark: hsl(45 100% 40%);
+  /* Exact GDG Bandung Colors */
+  --google-blue: #4285f4;
+  --google-green: #34a853;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc04;
   
-  /* Poppins Font Family */
-  --font-sans: 'Poppins', system-ui, sans-serif;
+  /* Inter Font - Same as GDG Bandung */
+  --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
 }

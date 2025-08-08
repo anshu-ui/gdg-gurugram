@@ -1,14 +1,12 @@
-import { Users, Calendar, Award, Globe, Code, Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface StatItemProps {
-  icon: React.ReactNode;
+  icon: string;
   value: string;
   label: string;
-  color: string;
 }
 
-function StatItem({ icon, value, label, color }: StatItemProps) {
+function StatItem({ icon, value, label }: StatItemProps) {
   const [count, setCount] = useState(0);
   const targetValue = parseInt(value.replace(/[^0-9]/g, ''));
 
@@ -21,83 +19,49 @@ function StatItem({ icon, value, label, color }: StatItemProps) {
         }
         return prev + Math.ceil(targetValue / 100);
       });
-    }, 30);
+    }, 20);
 
     return () => clearInterval(interval);
   }, [targetValue]);
 
   return (
-    <div className="text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-      <div className={`inline-flex p-4 rounded-full ${color} mb-6`}>
-        {icon}
+    <div className="text-center">
+      <div className="flex justify-center mb-4">
+        <img src={icon} alt="" className="h-12 w-12" />
       </div>
-      <div className="text-4xl font-bold text-gray-900 mb-3 font-poppins">
-        {count >= 1000 ? `${Math.floor(count / 1000)}K+` : `${count}+`}
+      <div className="text-3xl font-bold text-gray-900 mb-2">
+        {count >= 1000 ? `${Math.floor(count / 1000)}K++` : `${count}++`}
       </div>
-      <div className="text-gray-600 font-medium text-lg">{label}</div>
+      <div className="text-gray-600">{label}</div>
     </div>
   );
 }
 
 export default function StatsSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 font-poppins">
-            Our Growing Community
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join thousands of developers, designers, and tech enthusiasts who are part of the GDG Gurugram family
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <section className="py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <StatItem
-            icon={<Users className="h-8 w-8 text-white" />}
+            icon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiM0Mjg1RjQiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxMiIgeT0iMTIiPgo8cGF0aCBkPSJNMTYgN0M5LjM4IDcgNCA5LjM4IDQgMTJTOS4zOCAxNyAxNiAxN0MyMC4wMyAxNyAyMy41MSAxNC41MSAyMy44MSAxMC41QzIzLjkzIDkuNTcgMjMuMzcgOC42OSAyMi40OCA4LjI5TDE5IDYuNjVDMTcuOTYgNi4xNyAxNi45OCA2IDE2IDd6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+"
             value="5000"
-            label="Active Members"
-            color="bg-google-blue"
+            label="Community Members"
           />
           <StatItem
-            icon={<Calendar className="h-8 w-8 text-white" />}
-            value="50"
-            label="Events Organized"
-            color="bg-google-green"
+            icon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiNGRjAwMDAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxMiIgeT0iMTIiPgo8cGF0aCBkPSJNMTkuMTUgOEM5Ljg5IDggMi41NCA5Ljc1IDIuNTQgMTJTOS44OSAxNiAxOS4xNSAxNkMyMC4yNyAxNiAyMS4yNyAxNS4xNiAyMS4yNyAxNC4xNFMxOS44NSAxMi4yOCAxOS4xNSAxMi4yOCIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cjwvc3ZnPg=="
+            value="1000"
+            label="YouTube Subscribers"
           />
           <StatItem
-            icon={<Award className="h-8 w-8 text-white" />}
-            value="25"
-            label="Expert Speakers"
-            color="bg-google-red"
+            icon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiMwMDc3QjUiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxMiIgeT0iMTIiPgo8cGF0aCBkPSJNMjAuMzcgOC45MUE4IDE4IDAgMDAyMC4zNyA4LjkxTDE5LjYyIDYuNDRBOCAxOCAwIDAwMTkuNjIgNi40NCIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cjwvc3ZnPg=="
+            value="2500"
+            label="LinkedIn Followers"
           />
-        </div>
-
-        {/* Additional Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="inline-flex p-3 rounded-full bg-google-yellow/10 mb-4">
-              <Code className="h-6 w-6 text-google-yellow" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">10+</h3>
-            <p className="text-gray-600">Technologies Covered</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="inline-flex p-3 rounded-full bg-google-blue/10 mb-4">
-              <Globe className="h-6 w-6 text-google-blue" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">100+</h3>
-            <p className="text-gray-600">Industry Partners</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="inline-flex p-3 rounded-full bg-google-red/10 mb-4">
-              <Heart className="h-6 w-6 text-google-red" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">3</h3>
-            <p className="text-gray-600">Years of Impact</p>
-          </div>
+          <StatItem
+            icon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiNFNDQwNUYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxMiIgeT0iMTIiPgo8cGF0aCBkPSJNMTIgMkMxMy4xIDIgMTQgMi45IDE0IDRIMTJDMTAUOSA0IDEwIDQuOSAxMCA2UzEwLjkgOCAxMiA4UzE0IDcuMSAxNCA2UzEzLjEgNCAxMiA0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cjwvc3ZnPg=="
+            value="8000"
+            label="Instagram Followers"
+          />
         </div>
       </div>
     </section>

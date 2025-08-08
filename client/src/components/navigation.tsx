@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import gdgLogoPath from "@assets/gdg gurugram_1754666308523.webp";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -14,55 +14,19 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isMobileMenuOpen]);
-
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-4">
-            {/* GDG Logo */}
-            <div className="w-12 h-12 bg-white rounded-full p-2 shadow-lg">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <circle cx="50" cy="25" r="15" fill="#4285F4"/>
-                <circle cx="25" cy="55" r="15" fill="#34A853"/>
-                <circle cx="75" cy="55" r="15" fill="#EA4335"/>
-                <circle cx="50" cy="75" r="10" fill="#FBBC04"/>
-                <text x="50" y="58" textAnchor="middle" fontSize="20" fontWeight="bold" fill="white">G</text>
-              </svg>
-            </div>
+    <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center">
+            <img 
+              src={gdgLogoPath} 
+              alt="GDG Gurugram" 
+              className="h-10 w-10 mr-3"
+            />
             <div>
-              <div className={`text-xl font-bold transition-colors ${
-                scrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                GDG Gurugram
-              </div>
-              <div className={`text-sm transition-colors ${
-                scrolled ? 'text-gray-600' : 'text-white/80'
-              }`}>
-                Google Developer Group
-              </div>
+              <div className="text-lg font-bold text-gray-900">Google Developer Group</div>
+              <div className="text-sm text-blue-600 font-semibold">Gurugram</div>
             </div>
           </div>
           
@@ -70,41 +34,31 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className={`font-medium transition-colors hover:text-google-blue ${
-                scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              className="text-gray-700 hover:text-blue-600 font-medium"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className={`font-medium transition-colors hover:text-google-blue ${
-                scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              className="text-gray-700 hover:text-blue-600 font-medium"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('events')}
-              className={`font-medium transition-colors hover:text-google-blue ${
-                scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              className="text-gray-700 hover:text-blue-600 font-medium"
             >
               Events
             </button>
             <button 
               onClick={() => scrollToSection('gallery')}
-              className={`font-medium transition-colors hover:text-google-blue ${
-                scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              className="text-gray-700 hover:text-blue-600 font-medium"
             >
               Gallery
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className={`font-medium transition-colors hover:text-google-blue ${
-                scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              className="text-gray-700 hover:text-blue-600 font-medium"
             >
               Contact
             </button>
@@ -114,7 +68,7 @@ export default function Navigation() {
           <Button
             variant="ghost"
             size="sm"
-            className={`md:hidden ${scrolled ? 'text-gray-700' : 'text-white'}`}
+            className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -124,35 +78,35 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed top-20 right-0 w-full h-screen bg-white shadow-lg">
-          <div className="px-4 py-6 space-y-4">
+        <div className="md:hidden bg-white border-t">
+          <div className="px-4 py-4 space-y-2">
             <button 
               onClick={() => scrollToSection('home')}
-              className="block text-gray-700 hover:text-google-blue transition-colors py-3 w-full text-left font-medium"
+              className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="block text-gray-700 hover:text-google-blue transition-colors py-3 w-full text-left font-medium"
+              className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('events')}
-              className="block text-gray-700 hover:text-google-blue transition-colors py-3 w-full text-left font-medium"
+              className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
             >
               Events
             </button>
             <button 
               onClick={() => scrollToSection('gallery')}
-              className="block text-gray-700 hover:text-google-blue transition-colors py-3 w-full text-left font-medium"
+              className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
             >
               Gallery
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="block text-gray-700 hover:text-google-blue transition-colors py-3 w-full text-left font-medium"
+              className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
             >
               Contact
             </button>
