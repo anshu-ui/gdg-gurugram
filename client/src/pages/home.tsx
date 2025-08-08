@@ -12,7 +12,7 @@ import Lightbox from "@/components/lightbox";
 
 export default function Home() {
   return (
-    <div className="bg-white font-google">
+    <div className="bg-white font-poppins">
       <Navigation />
       <HeroSection />
       <StatsSection />

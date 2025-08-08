@@ -26,38 +26,57 @@ export default function SponsorsSection() {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Sponsors & Partners</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Thanks to the amazing organizations that support and collaborate with GDG Gurugram
+        <div className="text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 font-poppins">
+            Our Amazing <span className="bg-gradient-to-r from-google-yellow to-google-red bg-clip-text text-transparent">Partners</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            We're grateful to work with incredible organizations that share our vision of building 
+            a stronger tech ecosystem in Gurugram and empowering developers across India.
           </p>
         </div>
 
-        <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">Community Partners</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            <div className="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
-              <div className="text-4xl text-gray-600">💻</div>
+        {/* Partner Logos Section */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold text-gray-900 mb-12 text-center font-poppins">Trusted Community Partners</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+            {/* Google */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-24">
+              <div className="text-3xl">🎯</div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
-              <div className="text-4xl text-green-600">🤖</div>
+            {/* Tech Partners */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-24">
+              <div className="text-3xl">💻</div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
-              <div className="text-4xl text-blue-600">💻</div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-24">
+              <div className="text-3xl">🚀</div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
-              <div className="text-4xl text-purple-600">☁️</div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-24">
+              <div className="text-3xl">⚡</div>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-24">
+              <div className="text-3xl">🎨</div>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-24">
+              <div className="text-3xl">🌟</div>
             </div>
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 lg:p-12">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Why Partnership with GDG Gurugram?</h3>
-          <p className="text-lg text-gray-600 mb-12 text-center max-w-4xl mx-auto">
-            We believe that collaboration is the key to a dynamic and sustainable technology ecosystem. By becoming a partner or sponsor of GDG Gurugram, you're not just investing in technological advancement; you're also gaining a suite of exclusive benefits:
-          </p>
+        {/* Partnership Benefits Section */}
+        <div className="bg-gradient-to-br from-google-blue/5 via-white to-google-green/5 rounded-3xl p-12 lg:p-16 shadow-2xl">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 font-poppins">
+              Why Partner with GDG Gurugram?
+            </h3>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Join our mission to build India's strongest tech community. Partnership with GDG Gurugram opens doors 
+              to exclusive opportunities, meaningful connections, and impactful brand visibility in the thriving 
+              Indian technology ecosystem.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Benefit
@@ -92,16 +111,33 @@ export default function SponsorsSection() {
             />
           </div>
 
-          <div className="text-center mt-12">
-            <h4 className="text-2xl font-bold text-gray-900 mb-4">Ready to Partner With Us?</h4>
-            <p className="text-lg text-gray-600 mb-8">Join our community of partners and sponsors who are making a difference in India's tech ecosystem.</p>
-            <Button 
-              onClick={scrollToContact}
-              className="inline-flex items-center px-8 py-4 bg-google-blue text-white font-semibold hover:bg-blue-600 transition-colors shadow-lg"
-            >
-              <Mail className="mr-3 h-5 w-5" />
-              Contact Us
-            </Button>
+          {/* Partnership CTA */}
+          <div className="text-center mt-16 bg-white rounded-2xl p-8 shadow-lg">
+            <h4 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 font-poppins">
+              Ready to Make an Impact?
+            </h4>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Join our community of forward-thinking partners and sponsors who are shaping the future 
+              of technology in India. Let's build something amazing together.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                onClick={scrollToContact}
+                size="lg"
+                className="bg-google-blue hover:bg-google-blue/90 text-white font-semibold px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <Mail className="mr-3 h-5 w-5" />
+                Partner with Us
+              </Button>
+              <Button 
+                variant="outline"
+                size="lg" 
+                onClick={() => window.open('mailto:gdggurugram@gmail.com?subject=Sponsorship Inquiry', '_blank')}
+                className="border-2 border-google-blue text-google-blue hover:bg-google-blue hover:text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300"
+              >
+                Sponsorship Info
+              </Button>
+            </div>
           </div>
         </div>
       </div>
