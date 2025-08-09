@@ -16,6 +16,9 @@ export default defineConfig({
         ]
       : []),
   ],
+  // Add this line to include JPG files as assets
+  assetsInclude: ['**/*.JPG', '**/*.jpg'],
+  
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

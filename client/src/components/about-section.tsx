@@ -1,5 +1,7 @@
 import { Users, BookOpen, Network, Code } from "lucide-react";
-
+import angular from "@assets/angular.jpeg";
+import angular1 from "@assets/angular1.jpeg";
+import io from "@assets/io.jpeg";
 interface FeatureCardProps {
   icon: React.ReactNode;
   title: string;
@@ -34,17 +36,17 @@ export default function AboutSection() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img 
-              src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+              src={angular} 
               alt="Sandhika Galih giving a talk at GDG Gurugram event"
               className="rounded-lg object-cover h-32 w-full"
             />
             <img 
-              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+              src={angular1} 
               alt="Hadian Rahmat giving a talk at GDG Gurugram event"
               className="rounded-lg object-cover h-32 w-full"
             />
             <img 
-              src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+              src={io} 
               alt="Danang Juffry giving a talk at GDG Gurugram event"
               className="rounded-lg object-cover h-32 w-full"
             />

@@ -37,9 +37,7 @@
   --google-yellow: #fbbc04;
   
   /* Inter Font - Same as GDG Bandung */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: 'JetBrains Mono', monospace;
+      font-family: Google Sans, sans-serif;
 }
 
 .dark {
