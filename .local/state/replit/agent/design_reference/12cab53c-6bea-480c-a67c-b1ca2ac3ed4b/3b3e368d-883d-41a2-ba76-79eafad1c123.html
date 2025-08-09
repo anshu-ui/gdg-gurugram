@@ -1,0 +1,741 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Developer Group Gurugram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'google-blue': '#4285F4',
+                        'google-green': '#34A853',
+                        'google-red': '#EA4335',
+                        'google-yellow': '#FBBC04'
+                    },
+                    fontFamily: {
+                        'google': ['Google Sans', 'Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #4285F4, #34A853, #EA4335, #FBBC04);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gallery-overlay {
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+        }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .hamburger span {
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
+</head>
+<body class="bg-white font-google">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <i class="fab fa-google text-2xl gradient-text"></i>
+                    <span class="text-xl font-semibold text-gray-900">GDG Gurugram</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-google-blue transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-google-blue transition-colors">About</a>
+                    <a href="#events" class="text-gray-700 hover:text-google-blue transition-colors">Events</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-google-blue transition-colors">Gallery</a>
+                    <a href="#contact" class="text-gray-700 hover:text-google-blue transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden hamburger" onclick="toggleMobileMenu()">
+                    <span class="block w-6 h-0.5 bg-gray-600 mb-1"></span>
+                    <span class="block w-6 h-0.5 bg-gray-600 mb-1"></span>
+                    <span class="block w-6 h-0.5 bg-gray-600"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden fixed top-16 right-0 w-full h-screen bg-white mobile-menu" id="mobileMenu">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-google-blue transition-colors py-2" onclick="toggleMobileMenu()">Home</a>
+                <a href="#about" class="block text-gray-700 hover:text-google-blue transition-colors py-2" onclick="toggleMobileMenu()">About</a>
+                <a href="#events" class="block text-gray-700 hover:text-google-blue transition-colors py-2" onclick="toggleMobileMenu()">Events</a>
+                <a href="#gallery" class="block text-gray-700 hover:text-google-blue transition-colors py-2" onclick="toggleMobileMenu()">Gallery</a>
+                <a href="#contact" class="block text-gray-700 hover:text-google-blue transition-colors py-2" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-16 bg-gradient-to-br from-blue-50 to-green-50 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        Google Developer Group
+                        <span class="gradient-text">Gurugram</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Connect with developers, learn new technologies, and grow together in Gurugram's vibrant tech community.
+                    </p>
+                    <a href="#events" class="inline-flex items-center px-8 py-4 bg-google-blue text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors shadow-lg">
+                        <i class="fas fa-calendar-alt mr-3"></i>
+                        Upcoming Events
+                    </a>
+                </div>
+                <div class="relative">
+                    <!-- Tech community meetup in Gurugram with developers collaborating -->
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="DevFest Gurugram" class="rounded-2xl shadow-2xl w-full" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fas fa-users text-4xl text-google-blue"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">4K+</div>
+                    <div class="text-gray-600">Community Members</div>
+                </div>
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fab fa-youtube text-4xl text-google-red"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">500+</div>
+                    <div class="text-gray-600">YouTube Subscribers</div>
+                </div>
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fab fa-linkedin text-4xl text-google-blue"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">1K+</div>
+                    <div class="text-gray-600">LinkedIn Followers</div>
+                </div>
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fab fa-instagram text-4xl text-google-red"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">7K+</div>
+                    <div class="text-gray-600">Instagram Followers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Join us for exciting tech events, workshops, and meetups organized by GDG Gurugram community.
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+                    <button class="px-6 py-2 text-sm font-medium text-white bg-google-blue rounded-md">Upcoming</button>
+                    <button class="px-6 py-2 text-sm font-medium text-gray-500 hover:text-gray-900">Past Events</button>
+                </div>
+            </div>
+
+            <div class="text-center py-20">
+                <i class="fas fa-calendar-times text-6xl text-gray-300 mb-6"></i>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">No upcoming events</h3>
+                <p class="text-gray-600">Check back soon for new events or browse our past events.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">About GDG Gurugram</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Google Developer Group (GDG) Gurugram is a local community of developers who are interested in Google's developer technology including Android, Web, Cloud, Machine Learning, Flutter and more.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-12 leading-relaxed">
+                        We organize events ranging from small meetups to large-scale conferences like DevFest to create spaces for developers to learn, connect, and grow together. Our community welcomes developers of all levels, from beginners to experts.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-8">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-heart text-2xl text-google-red mr-4"></i>
+                                <h3 class="text-xl font-semibold text-gray-900">Inclusive Community</h3>
+                            </div>
+                            <p class="text-gray-600">Open to developers of all experience levels</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-share-alt text-2xl text-google-blue mr-4"></i>
+                                <h3 class="text-xl font-semibold text-gray-900">Knowledge Sharing</h3>
+                            </div>
+                            <p class="text-gray-600">Learn from experts and share your knowledge</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-network-wired text-2xl text-google-green mr-4"></i>
+                                <h3 class="text-xl font-semibold text-gray-900">Networking</h3>
+                            </div>
+                            <p class="text-gray-600">Connect with fellow developers and professionals</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-hands-helping text-2xl text-google-yellow mr-4"></i>
+                                <h3 class="text-xl font-semibold text-gray-900">Hands-on Learning</h3>
+                            </div>
+                            <p class="text-gray-600">Participate in workshops and codelabs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Speakers presenting at tech conference in India -->
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Speaker at GDG Gurugram event" class="rounded-xl shadow-lg" />
+                    <!-- Developer workshop session in India -->
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Workshop at GDG Gurugram event" class="rounded-xl shadow-lg mt-8" />
+                    <!-- Tech presentation at conference in India -->
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Presentation at GDG Gurugram event" class="rounded-xl shadow-lg -mt-8" />
+                    <!-- Developer community networking event -->
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Participants at GDG Gurugram event" class="rounded-xl shadow-lg" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Series Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Event Series</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    GDG Gurugram is proud to present a series of events that bring together the best of the tech community.
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Build With AI -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative group">
+                        <iframe class="w-full h-64 lg:h-80 rounded-xl shadow-lg" src="https://www.youtube.com/embed/qJsRlV740sc" title="Build With AI" frameborder="0" allowfullscreen></iframe>
+                        <div class="absolute inset-0 bg-black bg-opacity-20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fab fa-youtube text-6xl text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Build With AI</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Build with AI is a global initiative organized by Google Developer Groups (GDG) to empower developers, students, professionals, and tech enthusiasts to explore and build solutions using Artificial Intelligence (AI) and Machine Learning (ML)—especially with a focus on Generative AI.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Google I/O Extended -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="lg:order-2 relative group">
+                        <iframe class="w-full h-64 lg:h-80 rounded-xl shadow-lg" src="https://www.youtube.com/embed/nRT9rkzDMXs" title="Google I/O Extended" frameborder="0" allowfullscreen></iframe>
+                        <div class="absolute inset-0 bg-black bg-opacity-20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fab fa-youtube text-6xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="lg:order-1">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Google I/O Extended</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Google I/O Extended is a series of community-led tech meetups that bring the knowledge and excitement of Google I/O to developers on a city level, all around the globe. These events are an excellent opportunity for developers to learn about the latest Google developer products and technologies, network with other developers, and get hands-on experience with Google's latest tools.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DevFest -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative group">
+                        <iframe class="w-full h-64 lg:h-80 rounded-xl shadow-lg" src="https://www.youtube.com/embed/QALB9eA1EI0" title="DevFest" frameborder="0" allowfullscreen></iframe>
+                        <div class="absolute inset-0 bg-black bg-opacity-20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fab fa-youtube text-6xl text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">DevFest</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            DevFest is the largest and most inclusive community-led technology conference in the world! DevFest is proud to embrace developers from all corners of the globe and with diverse backgrounds. Every year, Google Developer Groups host DevFests, where attendees explore developer tools, learn from Google Developer Experts, and connect with other developers from their local community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Sponsors & Partners</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Thanks to the amazing organizations that support and collaborate with GDG Gurugram
+                </p>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Community Partners</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+                    <!-- Tech community logos with Gurugram focus -->
+                    <div class="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
+                        <i class="fas fa-code text-4xl text-gray-600"></i>
+                    </div>
+                    <div class="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
+                        <i class="fab fa-android text-4xl text-green-600"></i>
+                    </div>
+                    <div class="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-4xl text-blue-600"></i>
+                    </div>
+                    <div class="bg-gray-100 rounded-xl p-6 w-32 h-32 flex items-center justify-center">
+                        <i class="fas fa-cloud text-4xl text-purple-600"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 lg:p-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Why Partnership with GDG Gurugram?</h3>
+                <p class="text-lg text-gray-600 mb-12 text-center max-w-4xl mx-auto">
+                    We believe that collaboration is the key to a dynamic and sustainable technology ecosystem. By becoming a partner or sponsor of GDG Gurugram, you're not just investing in technological advancement; you're also gaining a suite of exclusive benefits:
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <i class="fas fa-users text-3xl text-google-blue mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Reach Potential Developers</h4>
+                        <p class="text-gray-600">Gain direct access to our vibrant community of over 4000+ developers, designers, and tech enthusiasts in Gurugram.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <i class="fas fa-star text-3xl text-google-yellow mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Enhance Brand Recognition</h4>
+                        <p class="text-gray-600">Put your brand in the spotlight within Gurugram's tech scene through our diverse events and digital platforms.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <i class="fas fa-handshake text-3xl text-google-green mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Unlock Networking Opportunities</h4>
+                        <p class="text-gray-600">Build strategic connections with top digital talents, industry leaders, and leading tech companies in Gurugram.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <i class="fas fa-search text-3xl text-google-red mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Recruit Top Tech Talent</h4>
+                        <p class="text-gray-600">Engage directly with attendees from various tech backgrounds, including developers, software engineers, and startup founders.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <i class="fas fa-lightbulb text-3xl text-google-blue mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Establish Thought Leadership</h4>
+                        <p class="text-gray-600">Share your company's expertise, case studies, or latest technologies through dedicated sessions or workshops.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <i class="fas fa-heart text-3xl text-google-red mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Demonstrate Community Support</h4>
+                        <p class="text-gray-600">Showcase your commitment to local tech ecosystem development and fulfill your CSR goals with real impact.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Ready to Partner With Us?</h4>
+                    <p class="text-lg text-gray-600 mb-8">Join our community of partners and sponsors who are making a difference in India's tech ecosystem.</p>
+                    <a href="#contact" class="inline-flex items-center px-8 py-4 bg-google-blue text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors shadow-lg">
+                        <i class="fas fa-envelope mr-3"></i>
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Community Gallery</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Explore moments from our vibrant community events, workshops, and meetups. See the energy and passion that drives our developer community in Gurugram.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Tech community meetup in Gurugram -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 1" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Developer workshop in India -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 2" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Conference presentation -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 3" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Networking event developers -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 4" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Tech meetup Gurugram -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 5" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Developer workshop India -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 6" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Conference tech presentation -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 7" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Networking developers -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 8" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Tech community meetup -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 9" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Developer workshop -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 10" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Conference presentation tech -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 11" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Networking event developers -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600')">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Gallery 12" class="w-full h-48 object-cover rounded-lg" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-expand-alt text-white opacity-0 group-hover:opacity-100 transition-opacity text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ready to join our community or partner with us? We'd love to hear from you!
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-8">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-2xl text-google-blue mr-4"></i>
+                            <div>
+                                <div class="text-sm text-gray-500">Email</div>
+                                <a href="mailto:gdggurugram@gmail.com" class="text-lg text-gray-900 hover:text-google-blue transition-colors">gdggurugram@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-2xl text-google-red mr-4"></i>
+                            <div>
+                                <div class="text-sm text-gray-500">Location</div>
+                                <div class="text-lg text-gray-900">Gurugram, Haryana, India</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-6">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-google-blue text-white rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-google-red text-white rounded-lg flex items-center justify-center hover:bg-red-600 transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-google-red text-white rounded-lg flex items-center justify-center hover:bg-red-600 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 text-white rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Send us a message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-google-blue focus:border-transparent" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-google-blue focus:border-transparent" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-google-blue focus:border-transparent" placeholder="What's this about?">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-google-blue focus:border-transparent resize-none" placeholder="Tell us more..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-google-blue text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fab fa-google text-3xl gradient-text"></i>
+                        <span class="text-2xl font-bold">GDG Gurugram</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Building a vibrant tech community in Gurugram through knowledge sharing, networking, and hands-on learning experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition-colors">Events</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="mailto:gdggurugram@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fas fa-envelope mr-2"></i>
+                                gdggurugram@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <span class="text-gray-400">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Gurugram, Haryana
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Google Developer Group Gurugram. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl max-h-full">
+            <img id="lightboxImage" src="" alt="" class="max-w-full max-h-full object-contain" />
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            mobileMenu.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        }
+
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            lightboxImage.src = imageSrc;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // TODO: Implement form submission logic
+            alert('Thank you for your message! We will get back to you soon.');
+        });
+
+        // Stats counter animation (optional enhancement)
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

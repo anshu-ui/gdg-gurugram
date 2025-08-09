@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import devfestLogoPath from "@assets/Frame 218738_1754666436704.png";
+// import devfestLogoPath from "@assets/Frame 218738_1754666436704.png";
 
 export default function HeroSection() {
   const scrollToEvents = () => {
@@ -30,7 +30,7 @@ export default function HeroSection() {
           </div>
           <div className="relative">
             <img 
-              src={devfestLogoPath} 
+              src="/attached_assets/group.JPG" 
               alt="DevFest Gurugram 2025" 
               className="w-full max-w-md mx-auto" 
             />
